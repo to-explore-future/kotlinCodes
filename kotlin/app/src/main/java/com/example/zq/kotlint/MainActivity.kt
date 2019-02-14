@@ -37,5 +37,11 @@ class MainActivity : AppCompatActivity() {
 
         //有自动装箱，限定了哪几种类型
         //但是不同的类型，不可以自动转换，要想转换必须使用强转，
+
+        val remainder1 = 9 % 4
+        val remainder2 = 9 % -4
+        val remainder3 = -9 % 4
+        val remainder4 = -9 % -4
+        Log.d("MainActivity","\remainder1:" + remainder1 + "\rremainder2:" + remainder2 + "\remainder3:" + remainder3 + "\remainder4:" + remainder4)
     }
 }
