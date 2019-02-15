@@ -3,6 +3,7 @@ package com.example.zq.kotlint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import java.lang.IllegalArgumentException
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +43,32 @@ class MainActivity : AppCompatActivity() {
         val remainder2 = 9 % -4
         val remainder3 = -9 % 4
         val remainder4 = -9 % -4
-        Log.d("MainActivity","\remainder1:" + remainder1 + "\rremainder2:" + remainder2 + "\remainder3:" + remainder3 + "\remainder4:" + remainder4)
+        Log.d(
+            "MainActivity",
+            "\rremainder1:$remainder1\rremainder2:$remainder2\rremainder3:$remainder3\rremainder4:$remainder4"
+        )
+
+
+        //kotlin 对于位运算 不像java那样有左移右移 运算符，而是使用命令
+        val x = (1 shl 2) and 0x000FF000  // shifts left
+        //更多的位移命令 参考 shl 对应的源码
+
+
+        //字符的使用
+        val char2Int = char2Int('9')
+        Log.d("MainActivity", "" + char2Int)
+
+        //数组
+        // 创建一个 Array<String> 初始化为 ["0", "1", "4", "9", "16"]
+        val asc = Array(5) { i -> (i * i).toString() }
+        asc.forEach { println(it) }
+
+    }
+
+    private fun char2Int(c: Char): Int {
+        if (c !in '0'..'9') {
+            throw IllegalArgumentException("out of range")
+        }
+        return c.toInt() - '0'.toInt()
     }
 }
